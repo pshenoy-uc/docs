@@ -1,3 +1,4 @@
+
 from django.db import models
 from django.contrib.postgres.fields import JSONField, ArrayField
 
@@ -15,6 +16,7 @@ class MstState(models.Model):
         db_table = 'mst_state'
 
 class UnresolvedStatus(models.Model):
+
     id = models.AutoField(primary_key=True)
     name = models.CharField(unique=True, max_length=100)
 
