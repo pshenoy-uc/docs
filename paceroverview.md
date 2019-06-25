@@ -1,7 +1,6 @@
 ## UniCourt PACER API's overview
 
-###### UniCourt's partners in the PACER Collective are able to access the cases extracted everyday with the PACER
-API's. These API's provide the following data:
+###### All members in the PACER Collective are able to access the cases extracted everyday with these API's.
 * List of all the PACER courthouses
 * Retrieve UniCourt case id for a PACER case, known the PACER case ID and the courthouse
 * Generating the CSV file for clients which containing the cases with the latest updates for the requested date
