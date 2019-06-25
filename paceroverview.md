@@ -1,9 +1,29 @@
 ## Overview: UniCourt's PACER API
 
+## UniCourt's PACER Extractor Details
+* Job: Pulls new case filings
+* Schedule
+ * Daily Extraction Jobs which pulls cases the first time:
+  * Runs at 5:00 AM UTC on Tue, Wed, Thu, Fri all UTC time.
+  * Pulls filings for last 4 days. Ex: January 15 2019, 5:00am UTC run pulls cases filed from 2019-01-11 to 2019-01-14 
+  * Gets the docket information for only cases that were not pulled before
+ * Weekly Extraction Jobs which pulls cases the first time:
+  * Runs at 5:00 AM UTC on Sat UTC time.
+  * Pulls for last 2 weeks. Ex: December 29 2018, 5am UTC run pulls cases filed from 2018-12-14 to 2018-12-28
+  * Gets the docket information for only cases that were not pulled before. 
+ * What details are extracted?
+  * Parties and Attorneys: All are fetched
+  * Docket Entries: All docket entries as at the time of extraction
+
+* Job: Refreshes existing cases 60 days from the date of filings
+  * Parties and Attorneys: All are fetched
+  * Docket Entries: All docket entries as at the time of extraction from the last ....
+
+
 ###### All members in the PACER Collective are able to access the cases extracted everyday with these APIs.
 * List of all the PACER courthouses
 * Generate the CSV file containing cases with latest updates for the requested date
-* Use the Case Key received in the CSV file to retrieve the source file from the court
+* Use the Case ID received in the CSV file to retrieve the source file from the court
 
 ## API's
 ##### GET PACER COURTHOUSES
@@ -11,10 +31,10 @@
    * ###### Does not have any request parameters
 
 ##### GET CASES BY LAST UPDATED DATE
-   * ###### Get all cases updated on a specific date
+   * ###### Get all cases updated on a specific date in a CSV file
    * ###### Last updated date (date in UTC) to be given as the parameter
-   * ###### Sends a downloadable link of a CSV as response
-   * ###### This link is valid for 60 mins.
+   * ###### Returns a downloadable link of a CSV as response
+   * ###### The link is valid for 60 mins.
 
 
 ##### GET CASE SOURCE FILE PATH
@@ -24,15 +44,13 @@
    * ###### This link is valid for 60 mins.
 
 
-## Getting PACER cases and HTML
+## Getting PACER cases and 
 * ##### Hit the get_cases_by_last_updated_date api in order to get the CSV containing the UniCourt case ID
-* ##### using the case ID retrieved from the above step, make request to the get_case_source_file_path to get the case HTML
+* ##### Using the case ID retrieved from the above step, make request to the get_case_source_file_path to get the case source file
 
-## UniCourt Extractors
-* ##### An extractor (fetches 4 days of cases) that starts at 5:00 AM UTC and hits completion at 8:30 AM UTC, but can go up to 9:30 AM UTC depending on the number of cases
- * ##### Another negate 60 extractor which runs at 7:00AM UTC and fetches cases 60 days prior to the current date. 
 
-## Recommended API Integration method
+
+## Recommended methodology for integrating PACER APIs
 
 ##### For getting all the cases with the latest updates, the recommended extraction approach is for a two day extraction setup as follows
 * ##### Same day run
