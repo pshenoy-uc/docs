@@ -22,10 +22,11 @@
    ### Job Schedule to update existing cases
    * #### Refresh job for existing cases, 60 days from the date of filings
         * Parties and Attorneys: All are fetched
-        * Docket Entries: All docket entries as at the time of extraction from the last ....
+        * Docket Entries: All docket entries as at the time of extraction from the last docket entry date for that case
 
 
-###### All members in the PACER Collective are able to access the cases extracted everyday with these APIs.
+## Pacer Collective
+##### Members in PACER Collective are able to access the cases extracted everyday with these APIs.
 * List of all the PACER courthouses
 * Generate the CSV file containing cases with latest updates for the requested date
 * Use the Case ID received in the CSV file to retrieve the source file from the court
@@ -49,13 +50,13 @@
    * ###### This link is valid for 60 mins.
 
 
-## Getting PACER cases and 
+## Getting PACER cases and Case Source Files
 * ##### Hit the get_cases_by_last_updated_date api in order to get the CSV containing the UniCourt case ID
 * ##### Using the case ID retrieved from the above step, make request to the get_case_source_file_path to get the case source file
 
 
 
-## Recommended methodology for integrating PACER APIs
+## Recommended Integration Methodology For PACER API's
 
 ##### For getting all the cases with the latest updates, the recommended extraction approach is for a two day extraction setup as follows
 * ##### Same day run
