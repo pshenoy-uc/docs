@@ -42,11 +42,11 @@ API's. These API's provide the following data:
 * ##### Same day run
     * For this setup the last updated date will be the current date
     * The preferred extraction timing for this setup is after 10:00 AM UTC
-* #####Negate Run
+* ##### Negate Run
     * The run will have the last updated date as the previous days date
     * The preferred timing for this extraction 00:15AM UTC, the next day
 
-#####The above setup is preferred as
+##### The above setup is preferred as
 * ##### For the same day extraction
      ###### Our daily run which updated the PACER cases hits completion at 9:30AM UTC
 * ##### For the negate extraction
