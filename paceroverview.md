@@ -1,32 +1,28 @@
-## UniCourt PACER API's overview
+## Overview: UniCourt's PACER API
 
-###### UniCourt's partners in the PACER Collective are able to access the cases extracted everyday with the PACER
-API's. These API's provide the following data:
+###### All members in the PACER Collective are able to access the cases extracted everyday with these APIs.
 * List of all the PACER courthouses
-* Retrieve UniCourt case id for a PACER case, known the PACER case ID and the courthouse
-* Generating the CSV file for clients which containing the cases with the latest updates for the requested date
-* Using the UniCourt case id in the above steps to get the html file for that particular case
+* Generate the CSV file containing cases with latest updates for the requested date
+* Use the Case Key received in the CSV file to retrieve the source file from the court
 
-## Our API's
+## API's
 ##### GET PACER COURTHOUSES
-   * ###### To get the list of PACER courthouses
+   * ###### Get a list of PACER courthouses
    * ###### Does not have any request parameters
 
-##### GET CASE ID FOR PACER CASES
-   * ###### To get the UniCourt case ID for a PACER case
-   * ###### The PACER case ID and the courthouse should be provided as parameters
+##### GET CASES BY LAST UPDATED DATE
+   * ###### Get all cases updated on a specific date
+   * ###### Last updated date (date in UTC) to be given as the parameter
+   * ###### Sends a downloadable link of a CSV as response
+   * ###### This link is valid for 60 mins.
+
 
 ##### GET CASE SOURCE FILE PATH
-   * ###### To get the html for a specific case
+   * ###### Get the source file for a the case
    * ###### UniCourt case ID to be given as the parameter
-   * ###### Response will be a signed URL containing downloadable link to the HTML
-   * ###### This link is only valid for the first 60 mins.
+   * ###### Response will be a signed URL containing downloadable link to the source file
+   * ###### This link is valid for 60 mins.
 
-##### GET CASES BY LAST UPDATED DATE
-   * ###### To get the cases updated on a specific date
-   * ###### Last updated date (date) to be given as the parameter
-   * ###### Sends a downloadable link to a CSV as response
-   * ###### This link is valid for only the first 60 mins.
 
 ## Getting PACER cases and HTML
 * ##### Hit the get_cases_by_last_updated_date api in order to get the CSV containing the UniCourt case ID
